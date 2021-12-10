@@ -1,0 +1,60 @@
+@import "./navBar";
+@import "./footer";
+
+// min width -> doesnt apply below this width
+// max width -> doesnt apply above this width
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+background-color: transparent;
+  &.primary {
+    background-color: $primary;
+    color: $primary-light;
+  }
+}
+
+.hero {
+  background: linear-gradient(to bottom, #305a00a8, #305a00a8),url(../img/3.webp);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding: 0rem 7vw;
+  .left {
+    padding-top: 15rem;
+    .title {
+      color: $primary-light;
+      font-size: 3rem;
+    }
+    .subtitle {
+      color: #cdcdcd;
+      margin: 1rem 0rem 5rem 0.1rem;
+    }
+    .btn {
+      font-weight: bold;
+      padding: 1.4rem 3rem;
+      font-size: 1.4rem;
+      border-radius: 0.3rem;
+      border: 2px solid #489e07;
+    }
+  }
+}
+@media (max-width: 450px) {
+  html {
+    font-size: 80%;
+  }
+  .hero {
+    padding: 0rem 1rem;
+  }
+}
+
+main {
+  padding: 2rem 6vw;
+}

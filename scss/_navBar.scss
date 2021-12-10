@@ -1,0 +1,164 @@
+@import "./vars";
+
+nav {
+  height: 7rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  color: #fff;
+  transition: height, background-color, 0.2s ease-in-out;
+  .mobMenuBtn {
+    display: none;
+    margin-right: 0.5rem;
+    .btn {
+      width: 24px;
+      color: $secondary-dark;
+    }
+  }
+
+  #navCover {
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    background: #0000005e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+  }
+  .links {
+    margin-left: auto;
+    margin-right: 2rem;
+    .header {
+      display: none;
+      #closeMobNav {
+        font-size: 3rem;
+        padding-left: 1.2rem;
+        color: $primary;
+      }
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        margin-right: 1rem;
+
+        a {
+          text-decoration: none;
+          color: unset;
+          padding: 0.45rem 0.8rem;
+          background-color: transparent;
+          transition: color, background-color, 0.2s ease-in-out;
+          font-size: 1.2rem;
+          letter-spacing: 1px;
+          border-radius: 0.2rem;
+
+          &:hover {
+            color: $primary-light;
+          }
+        }
+      }
+    }
+  }
+  &.scrolled {
+    height: 4rem;
+    background-color: $navBg;
+    color: $primary-dark;
+  }
+  .account {
+    display: flex;
+    .btn {
+      border: 2px solid $primary;
+      padding: 0.6rem 1.3rem;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      border-radius: 2rem;
+      transition: background-color, color, 0.2s ease-in-out;
+      color: $primary-light;
+      &:hover {
+        background-color: transparent;
+        color: $primary-dark;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .account {
+    margin-left: auto;
+  }
+  nav {
+    height: 4rem;
+    background-color: $navBg;
+    color: $primary-dark;
+
+    .links {
+      margin: unset;
+      z-index: 11;
+      flex-direction: column;
+      background: $navBg;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      transition: width 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      width: 0px;
+      overflow: hidden;
+      ul {
+        flex-direction: column;
+        li {
+          margin-right: 0rem;
+          border-bottom: 1px solid $primary-dark;
+          &:nth-child(1) {
+            border-top: 1px solid $primary-dark;
+          }
+          a {
+            display: block;
+            padding: 0.9rem 1.5rem;
+            &:hover {
+              background-color: $primary;
+            }
+          }
+        }
+      }
+      .header {
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .logo {
+          flex-grow: 1;
+          text-align: center;
+        }
+      }
+    }
+    .mobMenuBtn {
+      display: block;
+    }
+  }
+
+  nav.mobNavActive {
+    #navCover {
+      opacity: 1;
+      visibility: visible;
+    }
+    .links {
+      width: 70%;
+    }
+  }
+}
