@@ -43,6 +43,9 @@ background-color: transparent;
       font-size: 1.4rem;
       border-radius: 0.3rem;
       border: 2px solid #489e07;
+      &:hover {
+        background-color: #489e07;
+      }
     }
   }
 }
