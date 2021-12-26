@@ -13,7 +13,7 @@
 .btn {
   border: none;
   cursor: pointer;
-background-color: transparent;
+  background-color: transparent;
   &.primary {
     background-color: $primary;
     color: $primary-light;
@@ -43,6 +43,7 @@ background-color: transparent;
       font-size: 1.4rem;
       border-radius: 0.3rem;
       border: 2px solid #489e07;
+      transition: background-color .2s ease-in-out;
       &:hover {
         background-color: #489e07;
       }
